@@ -1,0 +1,43 @@
+.navbar-default
+  %ul{class:"list"}
+    %li= link_to 'New Lecture', new_lecture_path, class: "btn btn-success"
+    %li= link_to 'New Teacher', new_teacher_path, class: "btn btn-success"
+    %li= link_to 'New Announcement', new_announcement_path, class: "btn btn-success"
+    %li= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger")
+    %li= button_to 'Log In', new_user_session_path, class: "btn btn-danger"
+.container-fluid
+  .row
+    .col-xs-12{class: "col-lg-6 col-md-8 col-sm-10"}
+      .container-fluid{class: "listing"}
+        %table{class:"table-hover table-responsive table-bordered tablestyle"}
+          %thead
+            %tr
+              %th Name
+              %th Teacher
+              %th
+              %th
+
+          %tbody
+            - if current_user.admin?
+              - @lectures.each do |lecture|
+                %tr
+                  %td= link_to lecture.name, lecture, :action => :show
+                  %td= lecture.teacher.name
+                %tr
+                  %td= link_to 'Show', lecture
+                  %td= link_to 'Edit', edit_lecture_path(lecture)
+                  %td= link_to 'Destroy', lecture, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - else
+              - @lectures.each do |lecture|
+                %tr
+                  %td= link_to lecture.name, lecture, :action => :show
+                  %td= lecture.teacher.name
+                  %td= link_to 'Show', lecture
+
+%br
+
+= link_to 'New Lecture', new_lecture_path
+= link_to 'New Teacher', new_teacher_path
+= link_to 'New Announcement', new_announcement_path
+= link_to('Logout', destroy_user_session_path, :method => :delete)
+= link_to 'Log In', new_user_session_path

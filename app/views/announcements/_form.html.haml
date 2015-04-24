@@ -1,0 +1,10 @@
+= simple_form_for(@announcement) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :content
+    = f.input :title
+    = f.association :lecture, class: 'input-group-btn'
+
+  .form-actions
+    = f.button :submit

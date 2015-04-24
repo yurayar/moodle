@@ -15,3 +15,80 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+.announce{
+  width: 30%;
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+  background-color: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.tablestyle td{
+  padding: 10px;
+}
+.list li{
+  display: inline-block;
+  min-height: 60px;
+  max-height: 10%;
+  color: white;
+}
+.nav_main{
+  background-color: #3c74ad;
+  min-height: 50px;
+  height: auto;
+  padding: 10px;
+}
+
+
+.tablestyle{
+  width: 100%;
+}
+.table-announcement{
+  width: 100%;
+}
+.table-announcement td{
+  font-size: 1em;
+  padding: 10px;
+}
+.table_phone td{
+  padding: 10px;
+  font-size: 2em;
+}
+.content_show_home{
+  height: auto;
+  background-color: #23ad72;
+}
+.showlect_phone{
+  width: 100%;
+  height: 70px;
+  background-color: #23ad72;
+  display: block;
+}
+.list_lect{
+  width: 100%;
+  height: auto;
+  background-color: white;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.7);
+  display: block;
+  margin-bottom: 10px;
+}
+.admin-nav{
+  background-color: white;
+  padding: 10px;
+  height: auto;
+}
+.list_announcement{
+  width: 100%;
+  height: auto;
+  background-color: white;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.7);
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.btn:visited{
+  color: inherit;
+}
+.table-admin td{
+  width: 30%;
+}

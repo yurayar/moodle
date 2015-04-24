@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @lecture.name
+%p
+  %b Announcement:
+  - @ann_content.each do |s|
+    .announce
+      %p= s.content
+      %p= s.title
+%p
+  %b Teacher:
+  = @lecture.teacher.name
+
+= link_to 'Edit', edit_lecture_path(@lecture)
+\|
+= link_to 'Back', lectures_path
