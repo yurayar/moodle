@@ -16,21 +16,23 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 .announce{
-  width: 30%;
+  width: 100%;
   height: auto;
   padding: 10px;
   margin: 5px;
+  font-size: 1em;
+  text-align: justify;
   background-color: white;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
 }
 .tablestyle td{
   padding: 10px;
 }
-.list li{
-  display: inline-block;
-  min-height: 60px;
-  max-height: 10%;
+.list td{
+  display: inline-table;
   color: white;
+  width: 20px;
 }
 .nav_main{
   background-color: #3c74ad;
@@ -55,8 +57,10 @@
   font-size: 2em;
 }
 .content_show_home{
-  height: auto;
+  padding-top: 10px;
+  margin-bottom: 0px;
   background-color: #23ad72;
+  height: 1000px !important;
 }
 .showlect_phone{
   width: 100%;
@@ -75,6 +79,7 @@
 .admin-nav{
   background-color: white;
   padding: 10px;
+  margin-bottom: 10px;
   height: auto;
 }
 .list_announcement{
@@ -84,11 +89,63 @@
   box-shadow: 0px 0px 1px rgba(0,0,0,0.7);
   display: block;
   margin-bottom: 10px;
-  margin-top: 10px;
 }
 .btn:visited{
   color: inherit;
 }
 .table-admin td{
   width: 30%;
+}
+.table-admin tr:nth-child(1){
+  width: 30%;
+}
+.list{
+  width: 100%;
+}
+.ann_count{
+  width: 10%;
+}
+.count-wrap{
+  border-radius: 100%;
+}
+.footer{
+  height: 100px;
+  background-color: #c8c8c8;
+}
+.search_bar{
+  background-color: white;
+  height: auto;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.login{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 1.5px black;
+}
+.show_lecture_background{
+  background-color: #24ad72;
+  min-height: 1200px;
+  width: 100%;
+}
+.lecture_table{
+  width: 100%;
+  font-size: 1.3em;
+}
+.infotable{
+  margin: 10px;
+  background-color: white;
+}
+.announcement{
+  text-align: center;
+  margin: 10px;
+  background-color: white;
+}
+.counted{
+  width: 100%;
+  margin-top: 10px;
+}
+.new_form{
+  background-color: #23ad72;
+  padding-top: 10px;
 }

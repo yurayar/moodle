@@ -1,10 +1,14 @@
-= simple_form_for(@announcement) do |f|
-  = f.error_notification
+.container-fluid{class:"new_form"}
+  .jumbotron
+    %p New announcement:
+    = simple_form_for(@announcement) do |f|
+      = f.error_notification
 
-  .form-inputs
-    = f.input :content
-    = f.input :title
-    = f.association :lecture, class: 'input-group-btn'
+      .form-inputs
+        = f.input :title
+        = f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
+        = f.association :lecture, class: 'input-group-btn'
+        = tinymce
 
-  .form-actions
-    = f.button :submit
+      .form-actions
+        = f.button :submit, class:"btn btn-primary"

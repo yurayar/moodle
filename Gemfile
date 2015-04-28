@@ -12,6 +12,9 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'devise'
+gem 'ransack'
+gem 'omniauth-facebook'
+gem 'tinymce-rails'
 
 
 group :development, :test do

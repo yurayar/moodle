@@ -1,13 +1,19 @@
 class LecturesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :set_lecture, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :edit, :update, :destroy]
+  before_action :set_lecture, only: [:show, :new, :edit, :update, :destroy]
 
   # GET /lectures
   def index
     @lectures = Lecture.all
     @teachers = Teacher.all
     @users = User.all
+    @q = Lecture.ransack(params[:q])
+    @lectures = @q.result(distinct: true)
     @list_user = @users.select{:email}
+    @lectures.each do |lect|
+      lect.ann_count=lect.announcements.size
+      lect.save
+    end
   end
 
   # GET /lectures/1
@@ -21,18 +27,23 @@ class LecturesController < ApplicationController
       @lecture = Lecture.new
   end
 
+  def anncount
+    if @lecture.ann_count.nil?
+      @lecture.ann_count = 0
+    end
+    @lecture.save
+  end
+
   # GET /lectures/1/edit
   def edit
   end
 
   # POST /lectures
   def create
-    if current_user.admin?
       @lecture = Lecture.new(lecture_params)
-    end
 
     if @lecture.save
-      redirect_to @lecture, notice: 'Lecture was successfully created.'
+      redirect_to lectures_path
     else
       render :new
     end

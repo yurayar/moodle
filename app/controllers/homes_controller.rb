@@ -1,6 +1,12 @@
 class HomesController < ApplicationController
   def show
     @lectures = Lecture.all
+    @lectures.each do |lect|
+      lect.ann_count=lect.announcements.size
+      lect.save
+    end
+    @q = Lecture.ransack(params[:q])
+    @lectures = @q.result(distinct: true)
     @announcements = Announcement.all.order(:created_at)
     @device = "others"
     respond_to do |format|

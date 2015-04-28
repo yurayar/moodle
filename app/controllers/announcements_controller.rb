@@ -24,7 +24,7 @@ class AnnouncementsController < ApplicationController
     @announcement = Announcement.new(announcement_params)
 
     if @announcement.save
-      redirect_to @announcement, notice: 'Announcement was successfully created.'
+      redirect_to announcements_path
     else
       render :new
     end

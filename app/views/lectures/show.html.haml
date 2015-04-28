@@ -1,18 +1,21 @@
-%p#notice= notice
+.container{class: "show_lecture_background"}
+  .col-lg-3
+    .jumbotron{class: "infotable"}
+      %table{class:"table-hover table-responsive lecture_table"}
+        %thead
+          %tr
+            %th= "Subject:"
+            %th= "Teacher:"
+        %tbody
+          %tr
+            %td= @lecture.name
+            %td= @lecture.teacher.name
+  .col-lg-6
+    .container-fluid
+      %p= "Announcements:"
+      - @ann_content.each do |s|
+        .announce
+          %p= raw s.title
+          %p= raw s.content
+  .col-lg-5
 
-%p
-  %b Name:
-  = @lecture.name
-%p
-  %b Announcement:
-  - @ann_content.each do |s|
-    .announce
-      %p= s.content
-      %p= s.title
-%p
-  %b Teacher:
-  = @lecture.teacher.name
-
-= link_to 'Edit', edit_lecture_path(@lecture)
-\|
-= link_to 'Back', lectures_path
