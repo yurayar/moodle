@@ -1,5 +1,5 @@
 class LecturesController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :new, :edit, :update, :destroy]
+  before_action :authenticate_user!
   before_action :set_lecture, only: [:show, :new, :edit, :update, :destroy]
 
   # GET /lectures

@@ -6,6 +6,7 @@
 
       .form-inputs
         = f.input :title
+        = f.file_field :annphoto
         = f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
         = f.association :lecture, class: 'input-group-btn'
         = tinymce

@@ -15,6 +15,7 @@ gem 'devise'
 gem 'ransack'
 gem 'omniauth-facebook'
 gem 'tinymce-rails'
+gem 'carrierwave'
 
 
 group :development, :test do

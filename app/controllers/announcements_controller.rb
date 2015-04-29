@@ -53,6 +53,6 @@ class AnnouncementsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def announcement_params
-      params.require(:announcement).permit(:content, :title, :lecture_id)
+      params.require(:announcement).permit(:content, :title, :lecture_id, :annphoto)
     end
 end
