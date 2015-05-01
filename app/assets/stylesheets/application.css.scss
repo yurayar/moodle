@@ -111,8 +111,12 @@
   border-radius: 100%;
 }
 .footer{
-  height: 100px;
-  background-color: #c8c8c8;
+  height: 60px;
+  background-color: #418ead;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.7);
 }
 .search_bar{
   width: 100%;
@@ -192,4 +196,40 @@
 }
 .feed{
   display: inline-block;
+}
+.btnso{
+  width: 60px;
+  background-color: #23ad72;
+}
+.link_to:hover{
+  display: none;
+}
+.heading{
+  text-align: center;
+}
+.copyright{
+  padding: 10px;
+  text-align: center;
+}
+.tableteacher{
+  width: 100%;
+}
+.tableteacher td{
+  width: 50%;
+}
+.btn-facebook
+{
+  color: yellow;
+}
+.btn:visited{
+  display: none;
+}
+.session{
+  color: white;
+}
+.btn-facebook{
+  background-color: #1362e9;
+}
+.btn-facebook:hover{
+  background-color: #3980e9;
 }

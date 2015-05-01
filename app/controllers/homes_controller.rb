@@ -1,5 +1,4 @@
 class HomesController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
   def show
     @lectures = Lecture.all
     @lectures.each do |lect|
@@ -7,8 +6,9 @@ class HomesController < ApplicationController
       lect.save
     end
     @anncont = Announcement.select(:content)
-    @videoid = "http://www.youtube.com/embed/nA1Aqp0sPQo?autoplay=0&showinfo=0&modestbranding=1"
+    @videoid = "http://www.youtube.com/embed/nA1Aqp0sPQo?autoplay=0&showinfo=0&modestbranding=1&fs=1"
     @videosource = Article.find(2)
+    @user = current_user
     @vidid = @videosource.content
     @q = Lecture.ransack(params[:q])
     @lectures = @q.result(distinct: true)

@@ -1,26 +1,33 @@
-%h1 Listing teachers
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Id
-      %th Lecture name
-      %th Degree
-      %th
-      %th
-      %th
-
-  %tbody
-    - @teachers.each do |teacher|
-      %tr
-        %td= teacher.name
-        %td= teacher.id
-        %td= teacher.degree
-        %td= link_to 'Show', teacher
-        %td= link_to 'Edit', edit_teacher_path(teacher)
-        %td= link_to 'Destroy', teacher, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Teacher', new_teacher_path
+.navbar-default{class: "main_nav"}
+  .container-fluid
+    .col-lg-4
+      %table{class: "table-responsive table-menu"}
+        %tbody
+          %tr
+            %td= link_to "Home", {:controller => :homes, :action => :show}, class: "btn btn-link"
+            %td= link_to "Lectures", lectures_path, class: "btn btn-link"
+            %td= link_to "Teachers", teachers_path, class: "btn btn-link"
+            %td= link_to "Announcements", announcements_path, class: "btn btn-link"
+    .col-lg-4
+    .col-lg-3
+    .col-lg-1
+      .container-fluid{class: "session"}
+        - if user_signed_in?
+          .pull-right
+            = link_to('Log Out', destroy_user_session_path, :method => :delete, class:"btn btn-link log_out")
+        -else
+          .pull-right
+            = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-facebook"
+.container-fluid{class: "content_show_home"}
+  .row
+    .col-lg-6
+      .container-fluid{class: "listing"}
+        %h1 Teachers
+        - @teachers.each do |teacher|
+          .list_lect
+            %table{class:"table-hover table-responsive tableteacher"}
+              %tbody
+                %tr
+                  %td= link_to teacher.name, teacher, :action => :show, class: "btn btn-link"
+                  %td= teacher.degree
+          .col-lg-6

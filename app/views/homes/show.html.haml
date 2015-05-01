@@ -6,14 +6,20 @@
           %table{class: "table-responsive table-menu"}
             %tbody
               %tr
+                %td= link_to "Home", {:controller => :homes, :action => :show}, class: "btn btn-link"
                 %td= link_to "Lectures", lectures_path, class: "btn btn-link"
                 %td= link_to "Teachers", teachers_path, class: "btn btn-link"
                 %td= link_to "Announcements", announcements_path, class: "btn btn-link"
-        .col-lg-4
-        .col-lg-3
-        .col-lg-1
+        .col-lg-6
+        .col-lg-2
           .container-fluid{class: "session"}
-            = link_to('Log Out', destroy_user_session_path, :method => :delete, class:"btn btn-link log_out")
+            - if user_signed_in?
+              .pull-right
+                = link_to('Log Out', destroy_user_session_path, :method => :delete, class:"btn btn-link log_out")
+                = image_tag @user.avatar, class: "thumbanail"
+            -else
+              .pull-right
+                = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-facebook"
     .container-fluid{class: "content_show_home"}
       .row
         .col-lg-6
@@ -29,23 +35,13 @@
                           .count{class: "badge"}
                             = lecture.ann_count
         .col-lg-6
-          - if current_user.admin?
-            .navbar-default{class: "admin-nav"}
-              %table{class:"table-admin"}
-                %tbody
-                  %tr
-                    %td= link_to 'New Lecture', new_lecture_path, class: "btn btn-link"
-                    %td= link_to 'New Teacher', new_teacher_path, class: "btn btn-link"
-                    %td= link_to 'New Announcement', new_announcement_path, class: "btn btn-link"
-                  %tr
-                    %td= link_to 'Edit Lectures', lectures_path, class: "btn btn-link"
-                    %td= link_to 'Edit Announcements', announcements_path, class: "btn btn-link"
-                    %td= link_to 'Edit Teachers', teachers_path, class: "btn btn-link"
           .container-fluid
             = search_form_for @q do |f|
               =f.search_field :name_start, class: "form-control", placeholder: "Search"
-            %iframe{:width => "100%", :height => "auto", :src => @vidid, class: "video-embed"}
+            %iframe{:width => "100%", :height => "auto", :src => @vidid, class: "video-embed", :frameBorder => "0"}
         .col-lg-12
+          .container-fluid{class: "heading"}
+            %h2="Latest Announcements"
           .container-fluid{class: "feed"}
             - @announcements.last(3).each  do |anno|
               .list_announcement
@@ -58,4 +54,3 @@
                       %td= truncate(anno.content, :length => 140)
                     %tr
                       %td= anno.lecture.name
-    .container-fluid{class:"footer"}

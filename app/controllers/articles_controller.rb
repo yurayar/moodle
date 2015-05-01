@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   def index
     @articles = Article.all
+    @users = User.all
   end
 
   # GET /articles/1

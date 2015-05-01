@@ -21,5 +21,14 @@
         %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
+.jumbotron
+  - @users.each do |u|
+    %table
+      %tbody
+        %tr
+          %td= u.id
+          %td= u.email
+        %tr{class:"thumbnail"}
+          %td= image_tag u.avatar
+          %td= link_to "delete", user_registration_path, :method => :delete
 = link_to 'New Article', new_article_path
