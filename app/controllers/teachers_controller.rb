@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
     @lector = Lecture.find_by_teacher_id(__id__)
+    @users = User.all
   end
 
   # GET /teachers/1

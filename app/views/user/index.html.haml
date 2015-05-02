@@ -1,0 +1,4 @@
+.container-fluid{class:"dashboard"}
+  - @users.each do |u|
+    = u.email
+    = link_to 'Destroy', u, :method => :delete, :data => { :confirm => 'Are you sure?' }
