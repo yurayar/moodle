@@ -5,6 +5,19 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    - if user_signed_in?
+      - if current_user.admin?
+        .navbar-default{class: "admin_nav"}
+          .container-fluid{class: "admin-welcome"}
+            .col-lg-4
+              %table{class: "activeadmin"}
+                %tbody
+                  %tr
+                    %td
+                      = link_to 'Dashboard', :controller => :dashboard, :action => :index, class: "btn btn-link"
+
+      - else
+    -else
     = yield
     .container-fluid{class:"footer"}
       .container-fluid{class: "copyright"}

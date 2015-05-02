@@ -8,6 +8,12 @@
             %td= link_to "Lectures", lectures_path, class: "btn btn-link"
             %td= link_to "Teachers", teachers_path, class: "btn btn-link"
             %td= link_to "Announcements", announcements_path, class: "btn btn-link"
+    .col-lg-6
+    .col-lg-2
+      .container-fluid{class: "session"}
+        .pull-right
+          = link_to('Log Out', destroy_user_session_path, :method => :delete, class:"btn btn-link log_out")
+          = image_tag @user.avatar, class: "thumb-user"
 .container-fluid{class: "dashboard"}
   .col-lg-2{class: "actions"}
   .col-lg-4{class: "users"}
@@ -17,7 +23,10 @@
           %tbody
             %tr
               %td= u.email
+              %td= u.id
+              %tr= u.avatar_url
               %td= link_to 'Destroy', u, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= link_to 'Edit', u, :controller => :user, :action => :edit
   .col-lg-3
     .container-fluid{class: "teachers"}
   .col-lg-3
