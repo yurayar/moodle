@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_user, only: [:show, :edit, :update]
 before_action :authenticate_user!
 
   def index
@@ -43,7 +43,6 @@ before_action :authenticate_user!
   end
 
   def destroy
-    if current_user.admin?
       @user = User.find(params[:id])
     if @user.destroy
       flash[:notice] = "Successfully deleted User."
@@ -51,7 +50,6 @@ before_action :authenticate_user!
     else
       redirect_to root_path
       end
-    end
   end
   private
   # Use callbacks to share common setup or constraints between actions.

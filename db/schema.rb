@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501142250) do
+ActiveRecord::Schema.define(version: 20150502201814) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150501142250) do
     t.string   "provider"
     t.string   "uid"
     t.string   "avatar",                 default: "http://www.lcfc.com/images/common/bg_player_profile_default_big.png"
+    t.datetime "confirmed_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -24,7 +24,7 @@
             %tr
               %td= u.email
               %td= u.id
-              %tr= u.avatar_url
+              %tr= u.avatar
               %td= link_to 'Destroy', u, :method => :delete, :data => { :confirm => 'Are you sure?' }
               %td= link_to 'Edit', u, :controller => :user, :action => :edit
   .col-lg-3

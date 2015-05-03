@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+
   mount_uploader :avatar, AvatarUploader
   def member_for
     Date.today.day - created_at.day
@@ -14,8 +15,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.avatar = auth.info.image
+      user.remote_avatar_url = auth.info.image.gsub('http://','https://')
     end
-    end
-
+  end
 end
