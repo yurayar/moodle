@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
+    get  'user/new' => 'user#new'
+    post 'user/new' => 'user#create'
   resources :user, :controller => "user"
   get '/dashboard' => 'dashboard#index'
   get '/user/edit' => 'user#edit'

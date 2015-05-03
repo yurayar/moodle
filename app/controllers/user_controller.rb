@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update]
+before_action :set_user, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!
 
   def index
@@ -18,10 +18,10 @@ before_action :authenticate_user!
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Successfully created User."
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :action => 'new'
     end
@@ -46,9 +46,9 @@ before_action :authenticate_user!
       @user = User.find(params[:id])
     if @user.destroy
       flash[:notice] = "Successfully deleted User."
-      redirect_to root_path
+      redirect_to dashboard_path
     else
-      redirect_to root_path
+      redirect_to dashboard_path
       end
   end
   private
