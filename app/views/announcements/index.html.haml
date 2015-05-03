@@ -1,18 +1,17 @@
 .container-fluid{class: "content_show_home"}
-  .row
-    .col-lg-2
-    .col-lg-8
-      .container-fluid{class: "listing"}
-        %h1 Announcements
-        - @announcements.each do |announcement|
-          .list_lect
-            %table{class:"table-hover table-responsive tableteacher"}
-              %tbody
-                %tr
-                  %td= image_tag announcement.annphoto, :width => "100%"
-                %tr
-                  %td= link_to announcement.title, announcement, :action => :show, class: "btn btn-link"
-                %tr
-                  %td= announcement.content.html_safe
-          .col-lg-6
-      .col-lg-2
+  .col-lg-7
+    .container-fluid{class: "listing"}
+      - @announcements.each do |announcement|
+        .list_lect
+          %table{class:"table-hover table-responsive tableteacher"}
+            %tbody
+              %tr
+                %td= image_tag announcement.annphoto, :width => "100%"
+              %tr
+                %td= link_to announcement.title, announcement, :action => :show, class: "btn btn-link"
+              %tr
+                %td{class: "full_ann_content"}
+                  = announcement.content.html_safe
+  .col-lg-5
+    .container-fluid{class: "right_sidebar_ann"}
+  .col-lg-2

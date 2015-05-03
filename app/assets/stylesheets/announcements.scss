@@ -1,3 +1,12 @@
 // Place all the styles related to the Announcements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.full_ann_content{
+  padding: 10px;
+  text-align: justify;
+}
+.right_sidebar_ann{
+  min-height: 100%;
+  height: auto;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.7);
+}
