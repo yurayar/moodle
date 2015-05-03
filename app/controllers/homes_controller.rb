@@ -1,9 +1,13 @@
 class HomesController < ApplicationController
   def show
+    @announcements = Announcement.all
     @lectures = Lecture.all
     @lectures.each do |lect|
       lect.ann_count=lect.announcements.size
       lect.save
+    end
+    @announcements.each do |announce|
+      @content = announce.content.html_safe
     end
     @anncont = Announcement.select(:content)
     @videoid = "http://www.youtube.com/embed/nA1Aqp0sPQo?autoplay=0&showinfo=0&modestbranding=1&fs=1"

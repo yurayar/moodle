@@ -38,14 +38,13 @@
   padding: 5px;
 }
 .admin-welcome{
-  height: 20px;
+  min-height: 20px;
+  height: auto;
   color: white;
 }
 .activeadmin{
   width: 100%;
-}
-.activeadmin td{
-  color: #23ad72;
+  color: white;
 }
 .tablestyle td{
   padding: 10px;
@@ -60,6 +59,7 @@
   min-height: 50px;
   height: auto;
   padding: 10px;
+  z-index: 10;
 }
 
 
@@ -80,6 +80,11 @@
 .content_show_home{
   padding-top: 10px;
   margin-bottom: 0px;
+  min-height: 1000px;
+  height: auto;
+  z-index: 1;
+}
+.content-area{
   min-height: 1000px;
   height: auto;
 }

@@ -1,32 +1,21 @@
-.navbar-default{class: "main_nav"}
-  .container-fluid
-    .col-lg-4
-      %table{class: "table-responsive table-menu"}
-        %tbody
-          %tr
-            %td= link_to "Home", {:controller => :homes, :action => :show}, class: "btn btn-link"
-            %td= link_to "Lectures", lectures_path, class: "btn btn-link"
-            %td= link_to "Teachers", teachers_path, class: "btn btn-link"
-            %td= link_to "Announcements", announcements_path, class: "btn btn-link"
-    .col-lg-6
-    .col-lg-2
-      .container-fluid{class: "session"}
-        .pull-right
-          = link_to('Log Out', destroy_user_session_path, :method => :delete, class:"btn btn-link log_out")
-          = image_tag @user.avatar, class: "thumb-user"
 .container-fluid{class: "dashboard"}
   .col-lg-2{class: "actions"}
   .col-lg-4{class: "users"}
     .container-fluid{class: "user"}
       - @users.each do |u|
-        %table{class: "table-responsive table-users"}
-          %tbody
-            %tr
-              %td= u.email
-              %td= u.id
-              %tr= u.avatar
-              %td= link_to 'Destroy', u, :method => :delete, :data => { :confirm => 'Are you sure?' }
-              %td= link_to 'Edit', u, :controller => :user, :action => :edit
+        .user-actions
+          %table{class: "table-responsive table-users"}
+            %tbody
+              %tr
+                %td
+                  = image_tag u.avatar, class: "img-circle user-av"
+                  = u.name
+                  = u.second_name
+              %tr
+                %td{class: "actonuser"}
+                  = link_to 'Destroy', u, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-link"
+                  = link_to 'Edit', edit_user_path(u), class: "btn btn-link"
+                  = link_to 'Show', u, class: "btn btn-link"
   .col-lg-3
     .container-fluid{class: "teachers"}
   .col-lg-3

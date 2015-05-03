@@ -1,16 +1,10 @@
-= simple_form_for(@user, url: registration_path(@user), html: { method: :put }) do |f|
+= simple_form_for(@user) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :email, required: true, autofocus: true
-
-
-    = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-    = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
-
+    = f.input :email
+    = f.input :name
+    = f.input :second_name
+    = f.input :admin
   .form-actions
-    = f.button :submit, "Update"
-= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete
-
-= link_to "Back", :back
+    = f.button :submit

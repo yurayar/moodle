@@ -36,7 +36,7 @@ before_action :authenticate_user!
     params[:user].delete(:password) if params[:user][:password].blank?
     params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
     if @user.update_attributes(user_params)
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :action => 'edit'
     end
@@ -57,6 +57,6 @@ before_action :authenticate_user!
     @user = User.find(params[:id])
   end
   def user_params
-    params.require(:user).permit(:username, :email, :avatar, :password, :salt, :encrypted_password)
+    params.require(:user).permit(:name, :second_name, :username, :email, :avatar, :password, :salt, :encrypted_password,:admin)
   end
 end
