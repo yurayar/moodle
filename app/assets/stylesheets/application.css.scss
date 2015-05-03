@@ -222,6 +222,7 @@
 }
 .feed{
   display: inline-block;
+  border-bottom: 0.5px solid rgba(0,0,0,0.3);
 }
 .btnso{
   width: 60px;
@@ -231,7 +232,18 @@
   display: none;
 }
 .heading{
+  height: 60px;
+  padding: 10px;
   text-align: center;
+  border-top: 0.5px solid rgba(0,0,0,0.3);
+  font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+  color: #5c5c5c;
+  overflow: hidden;
+}
+.heading p{
+  font-size: 1.5em;
+  margin-top: 15px;
+  letter-spacing: 2px;
 }
 .copyright{
   padding: 10px;
@@ -258,4 +270,17 @@
 }
 .btn-facebook:hover{
   background-color: #3980e9;
+}
+.btn-badge{
+  background-color: #3c74ad;
+}
+.btn-count {
+  background-color: #418ead !important;
+}
+.btn-dash:hover{
+  color: white !important;
+}
+.headwrap{
+  width: 100%;
+  background-color: #3c74ad !important;
 }

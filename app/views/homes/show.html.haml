@@ -11,7 +11,7 @@
                     %tr
                       %td= link_to lecture.name, lecture, :action => :show, class: "btn btn-link"
                       %td{class: "ann_count"}
-                        .count-wrap{class: "btn btn-primary"}
+                        .count-wrap{class: "btn btn-primary btn-count"}
                           .count{class: "badge"}
                             = lecture.ann_count
         .col-lg-6
@@ -21,8 +21,7 @@
             %iframe{:width => "100%", :height => "auto", :src => @vidid, class: "video-embed", :frameBorder => "0"}
         .col-lg-12
           .container-fluid{class: "heading"}
-            .progress-bar-danger
-            %h2="Latest Announcements"
+            %p LATEST ANNOUNCEMENTS
           .container-fluid{class: "feed"}
             - @announcements.last(3).each  do |anno|
               .list_announcement
