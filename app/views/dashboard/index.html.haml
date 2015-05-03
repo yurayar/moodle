@@ -44,3 +44,16 @@
                 = link_to 'Show', t, class: "btn btn-link"
 .col-lg-3
   .container-fluid{class: "lectures"}
+    - @lectures.last(10).each do |t|
+      .lecture-actions
+        %table{class: "table-responsive table-teachers"}
+          %tbody
+            %tr
+              %td
+                = t.id
+                = t.name
+            %tr
+              %td{class: "actonuser"}
+                = link_to 'Destroy', t, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-link"
+                = link_to 'Edit', edit_teacher_path(t), class: "btn btn-link"
+                = link_to 'Show', t, class: "btn btn-link"

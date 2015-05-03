@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only:  [:edit, :update, :destroy, :create, :new]
   # GET /teachers
   def index
     @teachers = Teacher.all
@@ -14,37 +14,57 @@ class TeachersController < ApplicationController
 
   # GET /teachers/new
   def new
-    @teacher = Teacher.new
+    if current_user.admin?
+      @teacher = Teacher.new
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /teachers/1/edit
   def edit
+    if current_user.admin?
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /teachers
   def create
-    @teacher = Teacher.new(teacher_params)
+    if current_user.admin?
+      @teacher = Teacher.new(teacher_params)
 
-    if @teacher.save
-      redirect_to @teacher, notice: 'Teacher was successfully created.'
+      if @teacher.save
+        redirect_to @teacher, notice: 'Teacher was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to root_path
     end
   end
 
   # PATCH/PUT /teachers/1
   def update
-    if @teacher.update(teacher_params)
-      redirect_to @teacher, notice: 'Teacher was successfully updated.'
+    if current_user.admin?
+      if @teacher.update(teacher_params)
+        redirect_to @teacher, notice: 'Teacher was successfully updated.'
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to root_path
     end
   end
 
   # DELETE /teachers/1
   def destroy
-    @teacher.destroy
-    redirect_to dashboard_path, notice: 'Teacher was successfully destroyed.'
+    if current_user.admin?
+      @teacher.destroy
+      redirect_to dashboard_path, notice: 'Teacher was successfully destroyed.'
+    else
+      redirect_to root_path
+    end
   end
 
   private

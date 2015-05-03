@@ -1,5 +1,6 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only:  [:edit, :update, :destroy, :create, :new]
 
   # GET /announcements
   def index
@@ -12,37 +13,57 @@ class AnnouncementsController < ApplicationController
 
   # GET /announcements/new
   def new
-    @announcement = Announcement.new
+    if current_user.admin?
+      @announcement = Announcement.new
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /announcements/1/edit
   def edit
+    if current_user.admin?
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /announcements
   def create
-    @announcement = Announcement.new(announcement_params)
+    if current_user.admin?
+      @announcement = Announcement.new(announcement_params)
 
-    if @announcement.save
-      redirect_to announcements_path
+      if @announcement.save
+        redirect_to announcements_path
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to root_path
     end
   end
 
   # PATCH/PUT /announcements/1
   def update
-    if @announcement.update(announcement_params)
-      redirect_to @announcement, notice: 'Announcement was successfully updated.'
+    if current_user.admin?
+      if @announcement.update(announcement_params)
+        redirect_to @announcement, notice: 'Announcement was successfully updated.'
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to root_path
     end
   end
 
   # DELETE /announcements/1
   def destroy
-    @announcement.destroy
-    redirect_to announcements_url, notice: 'Announcement was successfully destroyed.'
+    if current_user.admin?
+      @announcement.destroy
+      redirect_to announcements_url, notice: 'Announcement was successfully destroyed.'
+    else
+      redirect_to root_path
+    end
   end
 
   private
