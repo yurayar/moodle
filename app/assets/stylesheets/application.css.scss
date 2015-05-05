@@ -15,6 +15,9 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+body{
+  background-color: #24ad72;
+}
 .announce{
   width: 100%;
   height: auto;
@@ -55,7 +58,7 @@
   width: 20px;
 }
 .nav_main{
-  background-color: #44ffff;
+  background-color: #3c74ad;
   min-height: 50px;
   height: auto;
   padding: 10px;
