@@ -1,3 +1,22 @@
 // Place all the styles related to the Lectures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.lecturecoverphoto {
+  width: 100%;
+  height: auto;
+  padding: 0px !important;
+}
+.coverimage{
+  clip: rect(0px,200px,200px,0px);
+  height: 400px;
+  width: 100%;
+}
+.navbar-brand {
+  background-color: white;
+  width: 100%;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
+}
+.lectures-table td{
+  margin: 10px;
+  width: auto;
+}

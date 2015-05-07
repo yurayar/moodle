@@ -1,21 +1,17 @@
-.container{class: "content_show_home"}
-  .col-lg-3
-    .jumbotron{class: "infotable"}
-      %table{class:"table-hover table-responsive lecture_table"}
-        %thead
-          %tr
-            %th= "Subject:"
-            %th= "Teacher:"
-        %tbody
-          %tr
-            %td= @lecture.name
-            %td= @lecture.teacher.name
-  .col-lg-6
+.container-fluid{ class: "lecturecoverphoto"}
+  .navbar-brand
     .container-fluid
-      %p= "Announcements:"
-      - @ann_content.each do |s|
-        .announce
-          %p= raw s.title
-          %p= raw s.content
-  .col-lg-5
+      .list-inline
+        = @lecture.name
+  = image_tag @lecture.coverphoto, class: "coverimage"
+  .navbar-brand
+    .container-fluid
+      .list-inline
+.container-fluid
+  %p= "Announcements:"
+  - @ann_content.each do |s|
+    .announce
+      %p= raw s.title
+      %p= raw s.content
+.col-lg-5
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503121638) do
+ActiveRecord::Schema.define(version: 20150507113741) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150503121638) do
     t.datetime "updated_at",      null: false
     t.integer  "teacher_id"
     t.integer  "ann_count"
+    t.string   "coverphoto"
   end
 
   create_table "teachers", force: :cascade do |t|

@@ -92,6 +92,6 @@ class LecturesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def lecture_params
-      params.require(:lecture).permit(:name, :teacher_id, :announcement_id)
+      params.require(:lecture).permit(:name, :teacher_id, :announcement_id, :coverphoto)
     end
 end
