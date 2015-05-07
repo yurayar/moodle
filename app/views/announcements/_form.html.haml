@@ -1,15 +1,16 @@
-.container-fluid{class:"new_form"}
-  .jumbotron
-    %p New announcement:
-    = simple_form_for(@announcement) do |f|
-      = f.error_notification
-
+.container-fluid{class: "new-announcement"}
+  = simple_form_for(@announcement) do |f|
+    = f.error_notification
+    .col-lg-6
       .form-inputs
         = f.input :title
-        = f.file_field :annphoto
-        = f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120, :theme => "simple"
-        = f.association :lecture, class: 'input-group-btn'
+        = f.text_area :content, :class => "tinymce", :rows => 20, :cols => 120, :theme => "simple"
         = tinymce
-
+    .col-lg-4
       .form-actions
+        = f.association :lecture, :item_wrapper_class => "dropdown-menu"
+        .panel-body
+          %p Thumbnail
+          = f.file_field :annphoto
         = f.button :submit, class:"btn btn-primary"
+        = link_to 'Back', dashboard_path, class: "btn btn-danger"

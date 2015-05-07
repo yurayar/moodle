@@ -1,9 +1,13 @@
-= simple_form_for(@teacher) do |f|
-  = f.error_notification
+.col-lg-4{class: "new-teacher"}
+  .panel-title
+    %h4 New Teacher
+  = simple_form_for(@teacher) do |f|
+    = f.error_notification
 
-  .form-inputs
-    = f.input :name
-    = f.input :degree
+    .form-inputs
+      = f.input :name
+      = f.input :degree
 
-  .form-actions
-    = f.button :submit
+    .form-actions
+      = f.button :submit
+  = link_to 'Back', dashboard_path

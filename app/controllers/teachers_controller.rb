@@ -10,6 +10,7 @@ class TeachersController < ApplicationController
 
   # GET /teachers/1
   def show
+    @teacher_lecture = @teacher.lectures.select{:name}
   end
 
   # GET /teachers/new
@@ -35,12 +36,12 @@ class TeachersController < ApplicationController
       @teacher = Teacher.new(teacher_params)
 
       if @teacher.save
-        redirect_to @teacher, notice: 'Teacher was successfully created.'
+        redirect_to dashboard_path, notice: 'Teacher was successfully created.'
       else
         render :new
       end
     else
-      redirect_to root_path
+      redirect_to dashboard_path
     end
   end
 

@@ -13,6 +13,8 @@
         %td= link_to 'New Article', new_article_path, class: "btn btn-link"
 .col-lg-4{class: "users"}
   .container-fluid{class: "user"}
+    .label-column
+      %h4 Users:
     - @users.last(10).each do |u|
       .user-actions
         %table{class: "table-responsive table-users"}
@@ -29,6 +31,8 @@
                 = link_to 'Show', u, class: "btn btn-link"
 .col-lg-3
   .container-fluid{class: "teachers"}
+    .label-column
+      %h4 Teachers:
     - @teachers.last(10).each do |t|
       .teacher-actions
         %table{class: "table-responsive table-teachers"}
@@ -44,6 +48,8 @@
                 = link_to 'Show', t, class: "btn btn-link"
 .col-lg-3
   .container-fluid{class: "lectures"}
+    .label-column
+      %h4 Lectures:
     - @lectures.last(10).each do |t|
       .lecture-actions
         %table{class: "table-responsive table-teachers"}
@@ -55,5 +61,5 @@
             %tr
               %td{class: "actonuser"}
                 = link_to 'Destroy', t, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-link"
-                = link_to 'Edit', edit_teacher_path(t), class: "btn btn-link"
+                = link_to 'Edit', edit_lecture_path(t), class: "btn btn-link"
                 = link_to 'Show', t, class: "btn btn-link"

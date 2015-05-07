@@ -5,7 +5,9 @@
   = @teacher.name
 %p
   %b Lecture name:
-  = @teacher.lecture_name
+  - @teacher_lecture.each do |s|
+    = s.name
+
 %p
   %b Degree:
   = @teacher.degree

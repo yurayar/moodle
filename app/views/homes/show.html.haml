@@ -4,6 +4,8 @@
       .row
         .col-lg-6
           .container-fluid{class: "listing"}
+            = search_form_for @q do |f|
+              =f.search_field :name_start, class: "form-control", placeholder: "Search"
             - @lectures.each do |lecture|
               .list_lect
                 %table{class:"table-hover table-responsive tablestyle"}
@@ -15,10 +17,9 @@
                           .count{class: "badge"}
                             = lecture.ann_count
         .col-lg-6
-          .container-fluid
-            = search_form_for @q do |f|
-              =f.search_field :name_start, class: "form-control", placeholder: "Search"
-            %iframe{:width => "100%", :height => "auto", :src => @vidid, class: "video-embed", :frameBorder => "0"}
+          .container-fluid{class: "rightsidebar-home"}
+            .embed-responsive{class: "embed-responsive-16by9"}
+              %iframe{:src => @vidid, class: "embed-responsive-item"}
         .col-lg-12
           .container-fluid{class: "heading"}
             %p LATEST ANNOUNCEMENTS
