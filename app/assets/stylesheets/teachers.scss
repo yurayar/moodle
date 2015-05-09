@@ -17,3 +17,36 @@
   color: white;
   border-radius: 2px;
 }
+.list_teachers{
+  width: 29%;
+  min-height: 400px;
+  height: auto;
+  font-size: 1em;
+  background-color: white;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.7);
+  display: inline-block;
+  margin: 2%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.thumbt{
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 2px solid white;
+}
+.tcoverhome{
+  height: 200px;
+  text-align: center;
+  color: white;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.7);
+}
+.img-circle-size{
+  width: 100px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 3px solid white;
+  height: 100px;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.7);
+}

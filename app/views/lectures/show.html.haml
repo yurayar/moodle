@@ -1,17 +1,23 @@
 .container-fluid{ class: "lecturecoverphoto"}
-  .navbar-brand
+  .navbar-brand{class: "name-lecture"}
     .container-fluid
       .list-inline
         = @lecture.name
   = image_tag @lecture.coverphoto, class: "coverimage"
-  .navbar-brand{class: "hello"}
+  .navbar-default{class: "lecture-actions"}
     .container-fluid
-      .list-inline
-.container-fluid
-  %p= "Announcements:"
-  - @ann_content.each do |s|
-    .announce
-      %p= raw s.title
-      %p= raw s.content
+      = link_to 'Announcements', announcement_path, class: "btn btn-link btn-md"
+.container-fluid{class: "feed"}
+  - @announcements.where(:lecture => @lecture).last(3).each  do |anno|
+    .list_announcement
+      = image_tag anno.annphoto, class:"thumb"
+      %table{class:"table-hover table-responsive table-announcement"}
+        %tbody
+          %tr
+            %td= link_to anno.title, anno, :action => :show, class: "btn btn-link"
+          %tr
+            %td= sanitize (anno.content.truncate(300, separator: '</p>'))
+          %tr
+            %td= anno.lecture.name
 .col-lg-5
 

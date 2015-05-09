@@ -16,7 +16,8 @@ gem 'ransack'
 gem 'omniauth-facebook'
 gem 'tinymce-rails'
 gem 'carrierwave'
-
+gem 'rmagick'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'sqlite3'

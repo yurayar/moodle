@@ -33,3 +33,11 @@
                       %td= link_to anno.title, anno, :action => :show, class: "btn btn-link"
                     %tr
                       %td= anno.lecture.name
+          .container-fluid{class: "heading"}
+            %p NEW TEACHERS
+          .container-fluid{class: "teachers-feed"}
+            - @teachers.last(3).each  do |tchr|
+              .list_teachers
+                .container-fluid{class: "tcoverhome", :style => %(background:url("#{tchr.tcover.url(:thumb)}") no-repeat center; background-size: 100% auto)}
+                  = image_tag tchr.tavatar.url(:thumb), class: "img-circle img-circle-size center-block"
+                  = link_to tchr.name, tchr, :action => :show, class: "btn btn-lg btn-link btn-teacher-name"

@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .dashboard{
-  min-height: 100%;
+  min-height: 1000px;
   height: auto;
 }
 .actions{
@@ -12,17 +12,17 @@
 }
 .user{
   background-color: white;
-  height: 100%;
+  height: auto;
   margin-top: 10px;
 }
 .teachers{
   background-color: white;
-  height: 100%;
+  height: auto;
   margin-top: 10px;
 }
 .lectures{
   background-color: white;
-  height: 100%;
+  height: auto;
   margin-top: 10px;
 }
 .user-av{
@@ -84,4 +84,36 @@
 }
 .table-teachers tr{
   width: 100%;
+}
+.table-lectures{
+  width: 100%;
+  height: 100px;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.7);
+}
+.table-lectures td{
+  padding: 5px;
+}
+.table-lectures tr{
+  width: 100%;
+}
+.content_show_dash{
+  min-height: 1000px;
+  height: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.tchres{
+  min-height: 1000px;
+  height: auto;
+}
+.list-group-item{
+  color: white;
+  background-color: #418ead !important;
+}
+.list-group-item:hover{
+  color: white;
+  background-color: #1362e9 !important;
 }

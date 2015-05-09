@@ -85,7 +85,7 @@
   z-index: 1;
 }
 .content-area{
-  min-height: 800px;
+  min-height: 1000px;
   height: auto;
   padding: 0px;
 }
@@ -291,4 +291,10 @@
 .rightsidebar-home{
   height: auto;
   margin-bottom: 10px;
+}
+.btn-teacher-name{
+  color: white;
+}
+.btn-teacher-name:visited{
+  color: white !important;
 }

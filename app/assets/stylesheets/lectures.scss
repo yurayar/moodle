@@ -7,12 +7,11 @@
   padding: 0px !important;
 }
 .coverimage{
-  clip: rect(0px,200px,200px,0px);
   height: 400px;
   width: 100%;
   z-index: 1;
 }
-.navbar-brand {
+.name-lecture {
   background-color: white;
   width: 100%;
   box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
@@ -20,4 +19,9 @@
 .lectures-table td{
   margin: 10px;
   width: auto;
+}
+.lecture-actions{
+  height: auto;
+  padding: 10px;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
 }

@@ -11,6 +11,7 @@
 %p
   %b Degree:
   = @teacher.degree
+  = image_tag @teacher.tcover.url(:thumb)
 
 = link_to 'Edit', edit_teacher_path(@teacher)
 \|

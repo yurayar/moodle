@@ -1,7 +1,15 @@
-%h1 Editing teacher
+.col-lg-4{class: "new-teacher"}
+  .panel-title
+    %h4 New Teacher
+  = simple_form_for(@teacher) do |f|
+    = f.error_notification
 
-= render 'form'
+    .form-inputs
+      = f.input :name
+      = f.input :degree
+      = f.file_field :tavatar
+      = f.file_field :tcover
 
-= link_to 'Show', @teacher
-\|
-= link_to 'Back', teachers_path
+    .form-actions
+      = f.button :submit
+  = link_to 'Back', dashboard_path

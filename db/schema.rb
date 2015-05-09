@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507113741) do
+ActiveRecord::Schema.define(version: 20150507201117) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20150507113741) do
     t.string   "degree"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "tavatar"
+    t.string   "tcover"
   end
 
   create_table "users", force: :cascade do |t|

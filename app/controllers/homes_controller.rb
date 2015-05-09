@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
   def show
     @announcements = Announcement.all
+    @teachers = Teacher.all
     @lectures = Lecture.all
     @lectures.each do |lect|
       lect.ann_count=lect.announcements.size
